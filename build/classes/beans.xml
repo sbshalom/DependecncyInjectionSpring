@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+">
+    <bean id="triangleId" class="objectdependencyinjection.Triangle" scope="singleton"> 
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+                <ref bean="Point2"/>
+                <ref bean="Point1"/>
+            </list>
+        </property>
+        <!--       <property name="pointA" ref="zeroPoint"/>
+        <property name="pointB" ref="Point1"/>
+        <property name="pointC" ref="Point1"/>-->
+    </bean>  
+    
+    <bean id="zeroPoint" class="objectdependencyinjection.Point">
+        <constructor-arg  value="0"/>
+        <constructor-arg  value="0"/>
+    </bean>
+    
+    <bean id="Point1" class="objectdependencyinjection.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="10"/>
+    </bean>
+    
+    <bean id="Point2" class="objectdependencyinjection.Point">
+        <constructor-arg value="50"/>
+        <property name="y" value="20"/>
+    </bean>
+
+</beans>
